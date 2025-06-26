@@ -35,6 +35,16 @@ namespace Persistence
             services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
             services.AddScoped<FluentValidation.IValidator<SignUpCommand>, SignUpCommandValidator>();
             services.AddScoped<FluentValidation.IValidator<SignInCommand>, SignInCommandValidator>();
+            services.AddScoped<ApplicationRepository>();
+            services.AddScoped<JobRepository>();
+            services.AddSingleton<CloudinaryService>(sp => {
+                var config = configuration.GetSection("CloudinarySettings");
+                return new CloudinaryService(
+                    config["CloudName"],
+                    config["ApiKey"],
+                    config["ApiSecret"]
+                );
+            });
             return services;
         }
     }
