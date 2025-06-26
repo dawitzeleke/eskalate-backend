@@ -6,6 +6,9 @@ using MongoDB.Driver;
 using Microsoft.Extensions.Options;
 using backend.Application.Contracts.Persistence;
 using backend.Persistence.Repositories;
+using Microsoft.AspNetCore.Identity;
+using backend.Infrastructure.Services;
+using FluentValidation;
 
 namespace Persistence
 {
@@ -26,8 +29,12 @@ namespace Persistence
             });
 
             services.AddSingleton<MongoDbContext>();
-            services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
+            services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+            services.AddScoped<FluentValidation.IValidator<SignUpCommand>, SignUpCommandValidator>();
+            services.AddScoped<FluentValidation.IValidator<SignInCommand>, SignInCommandValidator>();
             return services;
         }
     }

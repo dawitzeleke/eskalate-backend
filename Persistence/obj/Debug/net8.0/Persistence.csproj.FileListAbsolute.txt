@@ -16,3 +16,5 @@ C:\Users\lenovo\Documents\challenge\Persistence\obj\Debug\net8.0\Persistence.pdb
 C:\Users\lenovo\Documents\challenge\Persistence\obj\Debug\net8.0\ref\Persistence.dll
 C:\Users\lenovo\Documents\challenge\Persistence\bin\Debug\net8.0\Application.dll
 C:\Users\lenovo\Documents\challenge\Persistence\bin\Debug\net8.0\Application.pdb
+C:\Users\lenovo\Documents\challenge\Persistence\bin\Debug\net8.0\Infrastructure.dll
+C:\Users\lenovo\Documents\challenge\Persistence\bin\Debug\net8.0\Infrastructure.pdb
