@@ -1,9 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using Application.Dtos;
 using System.Threading.Tasks;
-using Application.Features.Job;
-using Application.Response;
 using MediatR;
 using System.Linq;
 
@@ -11,11 +8,7 @@ using System.Linq;
 [Route("api/jobs")]
 public class JobController : ControllerBase
 {
-    // Inject repositories, services, etc. (pseudo-code, to be implemented)
-    // private readonly JobRepository _jobRepo;
-    // private readonly ApplicationRepository _applicationRepo;
-    // private readonly UserRepository _userRepo;
-
+  
     private readonly IMediator _mediator;
     public JobController(IMediator mediator)
     {

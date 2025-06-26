@@ -5,5 +5,5 @@ public class JobListItemDto
     public string Description { get; set; }
     public string Location { get; set; }
     public DateTime CreatedAt { get; set; }
-    public int ApplicationCount { get; set; } // optional
+    public int ApplicationCount { get; set; }
 } 

@@ -2,12 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using System.Threading.Tasks;
 using MediatR;
-using Application.Dtos;
-using Application.Features.Application.ApplyForJob;
-using Application.Features.Application.GetMyApplications;
-using Application.Features.Application.GetApplicationsForJob;
-using Application.Features.Application.UpdateApplicationStatus;
-using Application.Response;
 using Microsoft.AspNetCore.Http;
 using System.Linq;
 

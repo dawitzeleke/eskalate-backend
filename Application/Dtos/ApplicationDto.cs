@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Http;
 public class ApplyForJobRequest
 {
     public string JobId { get; set; }
-    public string CoverLetter { get; set; } // optional, max 200 chars
-    public IFormFile Resume { get; set; } // required, PDF
+    public string CoverLetter { get; set; }  
+    public IFormFile Resume { get; set; } 
 }
 
 public class ApplicationListItemDto
@@ -19,5 +19,5 @@ public class ApplicationListItemDto
 public class ApplicationStatusUpdateRequest
 {
     public string ApplicationId { get; set; }
-    public string NewStatus { get; set; } // Applied, Reviewed, Interview, Rejected, Hired
+    public string NewStatus { get; set; } 
 } 

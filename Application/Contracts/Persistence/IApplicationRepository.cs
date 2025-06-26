@@ -2,7 +2,7 @@ using backend.Application.Contracts.Persistence;
 
 public interface IApplicationRepository : IGenericRepository<Application>
 {
-    Task<(List<Application> Applications, int TotalCount)> GetApplicationsForJobAsync(string jobId, string companyId, int pageNumber, int pageSize);
+    Task<(List<Application> Applications, int TotalCount)> GetApplicationsForJobAsync(string jobId, int pageNumber, int pageSize);
 
     Task<Application?> GetApplicationByJobIdAndUserIdAsync(string jobId, string userId);
 
