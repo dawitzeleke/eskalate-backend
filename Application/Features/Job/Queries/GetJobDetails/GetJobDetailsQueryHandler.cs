@@ -1,19 +1,11 @@
-using MediatR;
-using Application.Dtos;
-using backend.Domain.Entities;
-using System.Threading;
-using System.Threading.Tasks;
 
-public class GetJobDetailsQuery : IRequest<BaseResponse<JobDetailsDto>>
-{
-    public string JobId { get; set; }
-}
+using MediatR;
 
 public class GetJobDetailsQueryHandler : IRequestHandler<GetJobDetailsQuery, BaseResponse<JobDetailsDto>>
 {
-    private readonly JobRepository _jobRepo;
-    private readonly UserRepository _userRepo;
-    public GetJobDetailsQueryHandler(JobRepository jobRepo, UserRepository userRepo)
+    private readonly IJobRepository _jobRepo;
+    private readonly IUserRepository _userRepo;
+    public GetJobDetailsQueryHandler(IJobRepository jobRepo, IUserRepository userRepo)
     {
         _jobRepo = jobRepo;
         _userRepo = userRepo;
@@ -31,7 +23,7 @@ public class GetJobDetailsQueryHandler : IRequestHandler<GetJobDetailsQuery, Bas
             Description = job.Description,
             Location = job.Location,
             CreatedBy = creator?.Name ?? job.CreatedBy,
-            CreatedAt = job.CreatedAt
+            CreatedAt = (DateTime)job.CreatedAt
         });
     }
 } 

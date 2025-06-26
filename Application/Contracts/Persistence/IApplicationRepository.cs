@@ -10,7 +10,7 @@ public interface IApplicationRepository : IGenericRepository<Application>
 
     Task<bool> UpdateApplicationStatusAsync(string applicationId, StatusEnum status);
 
-    Task<int> GetByJobIdAsync(string jobId, int page, int pageSize);
+    Task<List<Application>> GetByJobIdAsync(string jobId, int page, int pageSize);
     Task<int> CountByJobIdAsync(string jobId);
     Task<List<Application>> GetByApplicantIdAsync(string applicantId, int page, int pageSize);
     Task<int> CountByApplicantIdAsync(string applicantId);

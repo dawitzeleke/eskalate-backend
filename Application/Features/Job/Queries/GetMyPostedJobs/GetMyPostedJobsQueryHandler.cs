@@ -1,24 +1,11 @@
-using MediatR;
-using Application.Dtos;
-using Application.Response;
-using System.Collections.Generic;
-using backend.Domain.Entities;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Linq;
 
-public class GetMyPostedJobsQuery : IRequest<PaginatedResponse<JobListItemDto>>
-{
-    public string CompanyId { get; set; }
-    public int PageNumber { get; set; } = 1;
-    public int PageSize { get; set; } = 10;
-}
+using MediatR;
 
 public class GetMyPostedJobsQueryHandler : IRequestHandler<GetMyPostedJobsQuery, PaginatedResponse<JobListItemDto>>
 {
-    private readonly JobRepository _jobRepo;
-    private readonly ApplicationRepository _applicationRepo;
-    public GetMyPostedJobsQueryHandler(JobRepository jobRepo, ApplicationRepository applicationRepo)
+    private readonly IJobRepository _jobRepo;
+    private readonly IApplicationRepository _applicationRepo;
+    public GetMyPostedJobsQueryHandler(IJobRepository jobRepo, IApplicationRepository applicationRepo)
     {
         _jobRepo = jobRepo;
         _applicationRepo = applicationRepo;
@@ -33,9 +20,9 @@ public class GetMyPostedJobsQueryHandler : IRequestHandler<GetMyPostedJobsQuery,
         {
             JobId = j.Id,
             Title = j.Title,
-            Description = j.Description,
+            Description = j.Description?.Length > 200 ? j.Description.Substring(0, 200) + "..." : j.Description,
             Location = j.Location,
-            CreatedAt = j.CreatedAt,
+            CreatedAt = (DateTime)j.CreatedAt,
             ApplicationCount = appCounts.Length > idx ? appCounts[idx] : 0
         }).ToList();
         return PaginatedResponse<JobListItemDto>.CreateSuccess(result, request.PageNumber, request.PageSize, total);
