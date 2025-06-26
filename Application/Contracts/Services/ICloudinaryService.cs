@@ -1,3 +1,4 @@
+using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Http;
 
 public interface ICloudinaryService

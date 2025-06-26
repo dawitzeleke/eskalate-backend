@@ -22,11 +22,10 @@ public class CloudinaryService
             var uploadParams = new RawUploadParams
             {
                 File = new FileDescription(file.FileName, stream),
-                ResourceType = "raw",
                 Folder = "resumes"
             };
             var uploadResult = await _cloudinary.UploadAsync(uploadParams);
             return uploadResult.SecureUrl?.ToString();
         }
     }
-} 
+}

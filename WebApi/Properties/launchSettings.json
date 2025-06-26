@@ -14,6 +14,10 @@
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
+      "ASPNETCORE_ENVIRONMENT": "Development",
+        "CLOUDINARY_CLOUD_NAME": "dgdarlmkm",
+        "CLOUDINARY_API_KEY": "575516194255779",
+        "CLOUDINARY_API_SECRET": "ZkiASH06Z4EvctEhFm_ks_zmZU4",
       "applicationUrl": "http://localhost:5283",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
@@ -24,6 +28,10 @@
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
+      "ASPNETCORE_ENVIRONMENT": "Development",
+        "CLOUDINARY_CLOUD_NAME": "dgdarlmkm",
+        "CLOUDINARY_API_KEY": "575516194255779",
+        "CLOUDINARY_API_SECRET": "ZkiASH06Z4EvctEhFm_ks_zmZU4",
       "applicationUrl": "https://localhost:7205;http://localhost:5283",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
