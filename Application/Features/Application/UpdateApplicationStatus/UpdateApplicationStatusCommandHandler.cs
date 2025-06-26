@@ -3,10 +3,10 @@ using MediatR;
 
 public class UpdateApplicationStatusCommandHandler : IRequestHandler<UpdateApplicationStatusCommand, BaseResponse<ApplicationForJobDto>>
 {
-    private readonly ApplicationRepository _applicationRepo;
-    private readonly JobRepository _jobRepo;
-    private readonly UserRepository _userRepo;
-    public UpdateApplicationStatusCommandHandler(ApplicationRepository applicationRepo, JobRepository jobRepo, UserRepository userRepo)
+    private readonly IApplicationRepository _applicationRepo;
+    private readonly IJobRepository _jobRepo;
+    private readonly IUserRepository _userRepo;
+    public UpdateApplicationStatusCommandHandler(IApplicationRepository applicationRepo, IJobRepository jobRepo, IUserRepository userRepo)
     {
         _applicationRepo = applicationRepo;
         _jobRepo = jobRepo;

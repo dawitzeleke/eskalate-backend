@@ -70,12 +70,5 @@ public class ApplicationRepository
             .UpdateOneAsync(a => a.Id == applicationId, Builders<Application>.Update.Set(a => a.Status, status));
         return result.ModifiedCount > 0;
     }
-    public async Task<List<Application>> GetByJobIdAsync(string jobId, int pageNumber, int pageSize)
-    {
-        return await _context.GetCollection<Application>("Applications")
-            .Find(a => a.JobId == jobId)
-            .Skip((pageNumber - 1) * pageSize)
-            .Limit(pageSize)
-            .ToListAsync();
-    }
+    
 } 

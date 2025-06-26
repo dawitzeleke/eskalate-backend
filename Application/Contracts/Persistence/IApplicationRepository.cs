@@ -12,4 +12,6 @@ public interface IApplicationRepository : IGenericRepository<Application>
 
     Task<int> GetByJobIdAsync(string jobId, int page, int pageSize);
     Task<int> CountByJobIdAsync(string jobId);
+    Task<List<Application>> GetByApplicantIdAsync(string applicantId, int page, int pageSize);
+    Task<int> CountByApplicantIdAsync(string applicantId);
 }
