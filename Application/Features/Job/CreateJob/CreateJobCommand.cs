@@ -1,6 +1,6 @@
-using backend.Domain.Common;
+using MediatR;
 
-public class Job : BaseEntity
+public class CreateJobCommand : IRequest<CreateJobResponse>
 {
     public string Title { get; set; }
     public string Description { get; set; }
