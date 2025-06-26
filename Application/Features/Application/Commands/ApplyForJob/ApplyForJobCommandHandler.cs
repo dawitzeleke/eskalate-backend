@@ -1,4 +1,3 @@
-
 using MediatR;
 
 public class ApplyForJobCommandHandler : IRequestHandler<ApplyForJobCommand, BaseResponse<ApplicationListItemDto>>
@@ -26,7 +25,8 @@ public class ApplyForJobCommandHandler : IRequestHandler<ApplyForJobCommand, Bas
         var duplicate = await _applicationRepo.GetApplicationByJobIdAndUserIdAsync(request.ApplicantId, request.JobId);
         if (duplicate != null)
             return BaseResponse<ApplicationListItemDto>.Fail("You have already applied to this job.");
-        var resumeUrl = await _cloudinaryService.UploadAsync(request.Resume);
+        var uploadResult = await _cloudinaryService.UploadAsync(request.Resume);
+        var resumeUrl = uploadResult?.SecureUrl?.ToString();
         if (string.IsNullOrEmpty(resumeUrl))
             return BaseResponse<ApplicationListItemDto>.Fail("Resume upload failed or invalid file type.");
         var application = new Application
@@ -49,4 +49,4 @@ public class ApplyForJobCommandHandler : IRequestHandler<ApplyForJobCommand, Bas
             AppliedAt = application.AppliedAt
         });
     }
-} 
+}

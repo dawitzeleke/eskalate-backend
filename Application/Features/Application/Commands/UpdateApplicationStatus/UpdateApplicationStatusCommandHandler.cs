@@ -29,7 +29,6 @@ public class UpdateApplicationStatusCommandHandler : IRequestHandler<UpdateAppli
         var applicant = await _userRepo.GetByIdAsync(app.ApplicantId);
         return BaseResponse<ApplicationForJobDto>.CreateSuccess(new ApplicationForJobDto
         {
-            ApplicationId = app.Id,
             ApplicantName = applicant?.Name ?? "",
             ResumeLink = app.ResumeLink,
             CoverLetter = app.CoverLetter,
